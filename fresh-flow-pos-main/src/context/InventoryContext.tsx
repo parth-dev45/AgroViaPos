@@ -19,6 +19,7 @@ export const InventoryProvider = ({ children }: { children: ReactNode }) => {
             try {
                 // We need to convert date strings back to Date objects
                 const parsed = JSON.parse(saved);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 return parsed.map((c: any) => ({
                     ...c,
                     expiryDate: new Date(c.expiryDate),
@@ -54,6 +55,7 @@ export const InventoryProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useInventory = () => {
     const context = useContext(InventoryContext);
     if (context === undefined) {
