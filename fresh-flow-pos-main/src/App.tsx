@@ -3,7 +3,20 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
-// ... imports ...
+import Index from "./pages/Index";
+import POS from "./pages/POS";
+import Inventory from "./pages/Inventory";
+import Alerts from "./pages/Alerts";
+import NotFound from "./pages/NotFound";
+
+import Compliance from "./pages/Compliance";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
+
+import { ThemeProvider } from "@/components/theme-provider";
+import { InventoryProvider } from "./context/InventoryContext";
+
+const queryClient = new QueryClient();
 
 const App = () => (
   <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
