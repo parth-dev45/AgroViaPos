@@ -2,21 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import POS from "./pages/POS";
-import Inventory from "./pages/Inventory";
-import Alerts from "./pages/Alerts";
-import NotFound from "./pages/NotFound";
-
-import Compliance from "./pages/Compliance";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
-
-import { ThemeProvider } from "@/components/theme-provider";
-import { InventoryProvider } from "./context/InventoryContext";
-
-const queryClient = new QueryClient();
+import { HashRouter, Routes, Route } from "react-router-dom";
+// ... imports ...
 
 const App = () => (
   <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
@@ -25,7 +12,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/pos" element={<POS />} />
@@ -37,7 +24,7 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </TooltipProvider>
       </QueryClientProvider>
     </InventoryProvider>
